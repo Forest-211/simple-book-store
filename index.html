@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>response</title>
+</head>
+
+<body>
+    <button>添加数据</button>
+    <button>获取数据</button>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.24.0/axios.min.js"></script>
+    <script>
+        const button = document.querySelectorAll('button')
+
+        button[0].onclick = async () => {
+            const res = await axios({
+                url: `localhost:8080/book`, 
+                method: 'post', 
+                headers: {"Content-Type": "application/json"},
+                data: {
+                    "id": "978-7-111-55842-1",
+                    "name": "The Go Programming Language",
+                    "authors": ["Alan A.A.Donovan", "Brian W. Kergnighan"],
+                    "press": "Pearson Education"
+                }
+            })
+            conosle.log('res:', res)
+        }
+    </script>
+</body>
+
+</html>
